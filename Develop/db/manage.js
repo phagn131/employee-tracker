@@ -2,56 +2,50 @@ const connection = require('./db/connection.js');
 const inquirer = require('inquirer');
 const { table } = require('table');
 
-const addFlight = () => {
-//   flight_number, 
-// start_time,
-// end_time,
-// origin,
-// destination,
-// `status`,
-// pilot_id
-  console.log("Adding flight");
+const addEmployee = () => {
+
+  console.log("Adding employee");
   return connection.query(
-    // read from pilots
-    `SELECT * FROM pilots`,
+    // read from employees
+    `SELECT * FROM employees`,
     (err, result) => {
       if(err) console.error(err);
-      addFlightQuestions(result);
+      addEmployeeQuestions(result);
     }
   )
 }
 
-const addFlightQuestions = (pilots) => {
-  pilots = pilots.map( pilot => ({
-    name: pilot.first_name,
-    value: pilot
+const addEmployeeQuestions = (employee) => {
+  employee = employee.map( employee => ({
+    name: employee.first_name,
+    value: employee
   }));
-  console.log(pilots);
+  console.log(employees);
 
   return inquirer.prompt([
     {
       type: "list",
-      choices: pilots,
-      message: "Which pilot?",
-      name:"pilot"
+      choices: employees,
+      message: "Which employee?",
+      name:"employee"
     }
   ])
-  .then( ({pilot}) => {
-    console.log(JSON.stringify(pilot) + "\n\n\n\n\n");
+  .then( ({employee}) => {
+    console.log(JSON.stringify(employee) + "\n\n\n\n\n");
     mainmenu();
   });
   // return mainmenu();
 }
 
-const viewPilots = () => {
+const viewEmployees = () => {
   return connection.query(
-    // read from pilots
-    `SELECT * FROM pilots`,
+    // read from employees
+    `SELECT * FROM employees`,
     (err, result) => {
       if(err) console.error(err);
       let formattedResult = result.map( obj => Object.values(obj));
       // add column names
-      formattedResult.unshift(["id","first_name", "last_name", "airline_name"]);
+      formattedResult.unshift(["id","first_name", "last_name", "role"]);
       // console.log(formattedResult);
       console.log(table(formattedResult));
       mainmenu();
@@ -59,32 +53,32 @@ const viewPilots = () => {
   )
 }
 
-const addPilot = () => {
+const addEmployees = () => {
   // assume you use inquirer to get the following
   //  first_name, last_name, airline_name
 
   return inquirer.prompt([
     {
       type: "input",
-      message: "What is the pilot's first name? ",
+      message: "What is the employees first name? ",
       name: "first_name"
     },
     {
       type: "input",
-      message: "What is the pilot's last name? ",
+      message: "What is the employees last name? ",
       name: "last_name"
     },
     {
       type: "input",
-      message: "What is the pilot's airline? ",
-      name: "airline_name"
+      message: "What is the employees airline? ",
+      name: "role"
     },
   ])
   // .then( ({first_name, last_name, airline_name}) => {
   .then( param => {
     
     connection.query(
-    `INSERT INTO pilots SET ?`,
+    `INSERT INTO employees SET ?`,
     [
       // {
       //   first_name: "Bob", // first_name = "Bob",
@@ -117,7 +111,7 @@ const mainmenu = () => {
     {
       type: "list",
       message: "What would you like to do?",
-      choices: ["add flight", "add pilot", "view pilots", "exit"],
+      choices: ["add role", "add employee", "view employee", "exit"],
       name: "option"
     }
   ])
@@ -125,14 +119,14 @@ const mainmenu = () => {
     switch(option){
       case "exit":
         return program_exit();
-      case "add flight":
-        addFlight();
+      case "add role":
+        addRole();
         break;
-      case "add pilot":
-        addPilot();
+      case "add employee":
+        addEmployee();
         break;
-      case "view pilots":
-        viewPilots();
+      case "view employee":
+        viewEmployee();
         break;
     }
   });
