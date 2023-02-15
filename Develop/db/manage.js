@@ -54,8 +54,6 @@ const viewEmployees = () => {
 }
 
 const addEmployees = () => {
-  // assume you use inquirer to get the following
-  //  first_name, last_name, airline_name
 
   return inquirer.prompt([
     {
@@ -70,31 +68,25 @@ const addEmployees = () => {
     },
     {
       type: "input",
-      message: "What is the employees airline? ",
+      message: "What is the employees role? ",
       name: "role"
     },
   ])
-  // .then( ({first_name, last_name, airline_name}) => {
+
   .then( param => {
     
     connection.query(
     `INSERT INTO employees SET ?`,
     [
-      // {
-      //   first_name: "Bob", // first_name = "Bob",
-      //   last_name: "Taco", // last_name = "Taco",
-      //   airline_name: "Always Late Air" // airline_name = "Always Late Air"
-      // }
+   
       param
     ],
-    /*
-    INSERT INTO pilots SET first_name = "Bob", last_name = "Taco", airline_name = "Always Late Air"
-    */
+   
     function (err, result) {
       if (err) {
         console.log(err);
       }
-      // console.log(result);
+  
       mainmenu();
     });
   });
@@ -102,7 +94,7 @@ const addEmployees = () => {
 }
 
 const program_exit = () =>{
-  // use this when you want to exit the script
+
   connection.end();
 }
 
