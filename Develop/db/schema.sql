@@ -1,20 +1,27 @@
-DROP DATABASE IF EXISTS books_db;
-CREATE DATABASE books_db;
+DROP DATABASE IF EXISTS emloyee_db;
+CREATE DATABASE employee_db;
 
-USE books_db;
+USE employee_db;
 
-CREATE TABLE book_prices (
+CREATE TABLE department (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  price INT NOT NULL
+  name VARCHAR(30) NOT NULL,
 );
 
-CREATE TABLE favorite_books (
+CREATE TABLE role (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  book_name VARCHAR(30) NOT NULL,
-  in_stock BOOLEAN,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL,
   book_price INT,
-  FOREIGN KEY (book_price)
-  REFERENCES book_prices(id)
-  ON DELETE SET NULL
+  department_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 );
+
+CREATE TABLE employee (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  role_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  manager_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+);
+
 
