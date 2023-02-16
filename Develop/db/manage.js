@@ -1,5 +1,6 @@
 const connection = require('./db/connection.js');
 const inquirer = require('inquirer');
+const manage = require('manage.js');
 const { table } = require('table');
 
 const addEmployee = () => {
