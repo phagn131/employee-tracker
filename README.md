@@ -39,10 +39,11 @@ Uses the console.table package(https://www.npmjs.com/package/console.table) to p
 ## 📝 Notes
 
 - These are the (2) items required for submission
-  1.  The URL of the deployed application on Heroku
-      https://immense-wave-95168.herokuapp.com/
+  1.  The URL of the walkthrough video
+      (https://app.castify.com/view/09a2fed2-3aaa-42ac-81b8-88256bc57623)
+    
   2.  The URL of the GitHub repository that contains your code
-      https://github.com/phagn131/employee-tracker
+      (https://github.com/phagn131/employee-tracker)
 
 ## Contact Information:
 - Github: [phagn13@github.com](https://github.com/phagn13@github.com)
