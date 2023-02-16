@@ -2,15 +2,15 @@
 
 ## User Story
 
-```md
+
 In my capacity as a business owner, my objective is to be capable of accessing and controlling the departments, job positions, and workforce of my enterprise. This is essential for me to effectively structure and strategize my business operations. I need a system to be able to do this this seemlessly.
-```
+
 
 ## What To Expect
 
-```md
+
 A command-line application that allows users to view and manage departments, roles, and employees is presented. The user is provided with options to view all departments, roles, and employees, as well as to add new departments, roles, and employees. The application presents formatted tables of department names and ids, job titles, role ids, salaries, and department information, and employee data, including ids, names, job titles, departments, salaries, and managers. When adding a new department or role, the user is prompted to enter relevant information, which is then added to the database. Additionally, the user can update an employee's role by selecting the employee and specifying the new role.
-```
+
 
 ## Mock-Up
 
