@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS employee_d;
+DROP DATABASE IF EXISTS employee_db;
 CREATE DATABASE employee_db;
 
 USE employee_db;
@@ -6,14 +6,14 @@ USE employee_db;
 CREATE TABLE department (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   deparment_name VARCHAR(30) NOT NULL,
-  department_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  department_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
 );
 
 CREATE TABLE role (	
   role_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
 	job_title VARCHAR(30) NOT NULL,
   salary DECIMAL,
-  department_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  department_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
  
 );
 
@@ -23,6 +23,6 @@ CREATE TABLE employee (
   last_name VARCHAR(30) NOT NULL,
   role_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   manager_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  reporting_manager VARCHAR(30) NOT NULL,
+  reporting_manager VARCHAR(30) NOT NULL
   );
 
