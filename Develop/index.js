@@ -3,101 +3,101 @@ const inquirer = require('inquirer');
 const manage = require('manage.js');
 const { table } = require('table');
 
-const addEmployee = () => {
+// const addEmployee = () => {
 
-  console.log("Adding employee");
-  return connection.query(
-    // read from employees
-    `SELECT * FROM employees`,
-    (err, result) => {
-      if(err) console.error(err);
-      addEmployeeQuestions(result);
-    }
-  )
-}
+//   console.log("Adding employee");
+//   return connection.query(
+//     // read from employees
+//     `SELECT * FROM employees`,
+//     (err, result) => {
+//       if(err) console.error(err);
+//       addEmployeeQuestions(result);
+//     }
+//   )
+// }
 
-const addEmployeeQuestions = (employee) => {
-  employee = employee.map( employee => ({
-    name: employee.first_name,
-    value: employee
-  }));
-  console.log(employees);
+// const addEmployeeQuestions = (employee) => {
+//   employee = employee.map( employee => ({
+//     name: employee.first_name,
+//     value: employee
+//   }));
+//   console.log(employees);
 
-  return inquirer.prompt([
-    {
-      type: "list",
-      choices: employees,
-      message: "Which employee?",
-      name:"employee"
-    }
-  ])
-  .then( ({employee}) => {
-    console.log(JSON.stringify(employee) + "\n\n\n\n\n");
-    mainmenu();
-  });
-  // return mainmenu();
-}
+//   return inquirer.prompt([
+//     {
+//       type: "list",
+//       choices: employees,
+//       message: "Which employee?",
+//       name:"employee"
+//     }
+//   ])
+//   .then( ({employee}) => {
+//     console.log(JSON.stringify(employee) + "\n\n\n\n\n");
+//     mainmenu();
+//   });
+//   // return mainmenu();
+// }
 
-const viewEmployees = () => {
-  return connection.query(
-    // read from employees
-    `SELECT * FROM employees`,
-    (err, result) => {
-      if(err) console.error(err);
-      let formattedResult = result.map( obj => Object.values(obj));
-      // add column names
-      formattedResult.unshift(["id","first_name", "last_name", "role"]);
-      // console.log(formattedResult);
-      console.log(table(formattedResult));
-      mainmenu();
-    }
-  )
-}
+// const viewEmployees = () => {
+//   return connection.query(
+//     // read from employees
+//     `SELECT * FROM employees`,
+//     (err, result) => {
+//       if(err) console.error(err);
+//       let formattedResult = result.map( obj => Object.values(obj));
+//       // add column names
+//       formattedResult.unshift(["id","first_name", "last_name", "role"]);
+//       // console.log(formattedResult);
+//       console.log(table(formattedResult));
+//       mainmenu();
+//     }
+//   )
+// }
 
-const addEmployees = () => {
+// const addEmployees = () => {
 
-  return inquirer.prompt([
-    {
-      type: "input",
-      message: "What is the employees first name? ",
-      name: "first_name"
-    },
-    {
-      type: "input",
-      message: "What is the employees last name? ",
-      name: "last_name"
-    },
-    {
-      type: "input",
-      message: "What is the employees role? ",
-      name: "role"
-    },
-  ])
+//   return inquirer.prompt([
+//     {
+//       type: "input",
+//       message: "What is the employees first name? ",
+//       name: "first_name"
+//     },
+//     {
+//       type: "input",
+//       message: "What is the employees last name? ",
+//       name: "last_name"
+//     },
+//     {
+//       type: "input",
+//       message: "What is the employees role? ",
+//       name: "role"
+//     },
+//   ])
 
-  .then( param => {
+//   .then( param => {
     
-    connection.query(
-    `INSERT INTO employees SET ?`,
-    [
+//     connection.query(
+//     `INSERT INTO employees SET ?`,
+//     [
    
-      param
-    ],
+//       param
+//     ],
    
-    function (err, result) {
-      if (err) {
-        console.log(err);
-      }
+//     function (err, result) {
+//       if (err) {
+//         console.log(err);
+//       }
   
-      mainmenu();
-    });
-  });
+//       mainmenu();
+//     });
+//   });
   
-}
+// }
 
-const program_exit = () =>{
+// const program_exit = () =>{
 
-  connection.end();
-}
+//   connection.end();
+// }
 
 const mainmenu = () => {
   return inquirer.prompt([
