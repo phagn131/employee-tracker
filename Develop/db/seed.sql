@@ -12,11 +12,14 @@ VALUES (10, "OUTSIDE SALES", 75000, 12),
         (9, "STRUCTURAL ENGINEER", 11800, 18),
         (1, "CHAIRMAN AND CEO", 540000, 1)
 
+
+
 INSERT INTO employee(id, first_name, last_name, role_id, manager_id, reporting_manager) 
-VALUES (1, "Mary", "Jones" 10, NULL, "Mike Smith"),
+VALUES (1, "Mary", "Jones", 10, NULL, "Mike Smith"),
         (5, "Mike","Smith", 1, 1, "Himself"),
-        (3, "Faith","Thompson", 5, id[5]),
-        (4, "Mark", "Nickelwood", 9, NULL, id[5]);
+        (3, "Faith","Thompson", 5, "Mike Smith"),
+        (4, "Mark", "Nickelwood", 9, NULL, "Mike Smith");
+
 
 
 
