@@ -1,6 +1,6 @@
-const connection = require('./db/connection.js');
+const server = require('./Develop/server');
 const inquirer = require('inquirer');
-const manage = require('manage.js');
+const index = require('index');
 const { table } = require('table');
 
 // const addEmployee = () => {
