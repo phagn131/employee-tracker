@@ -1,3 +1,5 @@
+USE employee_db;
+
 INSERT INTO department(id, deparment_name, department_id) 
 VALUES (1, "SALES", 12),
         (2, "LEGAL", 8),
@@ -6,11 +8,11 @@ VALUES (1, "SALES", 12),
         (5, "EXECUTIVE", 1);
 
 INSERT INTO roles(role_id, job_title, salary, department_id) 
-VALUES (10, "OUTSIDE SALES", 75000, 12),
-        (18, "TAX ATTORNEY", 185000, 8),
-        (17, "SENIOR FINANCIAL ANALYST", 23),
-        (9, "STRUCTURAL ENGINEER", 11800, 18),
-        (1, "CHAIRMAN AND CEO", 540000, 1);
+VALUES (10, "OUTSIDE SALES", '75000', 12),
+        (18, "TAX ATTORNEY", '185000', 8),
+        (17, "SENIOR FINANCIAL ANALYST", '160000' 23),
+        (9, "STRUCTURAL ENGINEER", '118000', 18),
+        (1, "CHAIRMAN AND CEO", '540000', 1);
 
 
 
@@ -19,6 +21,8 @@ VALUES (1, "Mary", "Jones", 10, NULL, "Mike Smith"),
         (5, "Mike","Smith", 1, 1, "Himself"),
         (3, "Faith","Thompson", 5, "Mike Smith"),
         (4, "Mark", "Nickelwood", 9, NULL, "Mike Smith");
+
+SELECT * FROM employee_db;
 
 
 
